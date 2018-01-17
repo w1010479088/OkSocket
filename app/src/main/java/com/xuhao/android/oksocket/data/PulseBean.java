@@ -1,7 +1,6 @@
 package com.xuhao.android.oksocket.data;
 
-
-import com.xuhao.android.libsocket.sdk.bean.IPulseSendable;
+import com.xuhao.android.libsocket.interfaces.IPulseSendable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
