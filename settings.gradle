@@ -1,1 +1,1 @@
-include ':app', ':socket',":server"
+include ':app', ':socket'
