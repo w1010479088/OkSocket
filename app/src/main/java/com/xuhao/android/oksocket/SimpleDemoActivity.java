@@ -34,12 +34,9 @@ import static com.xuhao.android.libsocket.sdk.OkSocket.open;
  */
 
 public class SimpleDemoActivity extends AppCompatActivity {
-    private ConnectionInfo mInfo;
-
     private Button mConnect;
     private IConnectionManager mManager;
     private EditText mSendET;
-    private OkSocketOptions mOkOptions;
     private Button mClearLog;
     private Button mSendBtn;
 
@@ -128,12 +125,18 @@ public class SimpleDemoActivity extends AppCompatActivity {
         mReceList.setLayoutManager(manager2);
         mReceList.setAdapter(mReceLogAdapter);
 
-        mInfo = new ConnectionInfo("104.238.184.237", 8080);
-        mOkOptions = new OkSocketOptions.Builder()
+        mManager = open(info()).option(options());
+    }
+
+    private ConnectionInfo info() {
+        return new ConnectionInfo("104.238.184.237", 8080);
+    }
+
+    private OkSocketOptions options() {
+        return new OkSocketOptions.Builder()
                 .setReconnectionManager(new NoneReconnect())
                 .setWritePackageBytes(1024)
                 .build();
-        mManager = open(mInfo).option(mOkOptions);
     }
 
     private void setListener() {
